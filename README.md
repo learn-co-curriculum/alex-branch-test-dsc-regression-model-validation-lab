@@ -54,10 +54,14 @@ y = pd.DataFrame(boston.target,columns = ["target"])
 from sklearn.model_selection import train_test_split
 ```
 
+## Apply your model to the train set
+
 
 ```python
 X_train, X_test, y_train, y_test = train_test_split(X, y)
 ```
+
+#### Importing and initializing the model class
 
 
 ```python
@@ -68,9 +72,7 @@ print(len(X_train), len(X_test), len(y_train), len(y_test))
     379 127 379 127
 
 
-## Apply your model to the train set
-
-#### Importing and initializing the model class
+#### Fitting the model to the train data
 
 
 ```python
@@ -78,7 +80,7 @@ from sklearn.linear_model import LinearRegression
 linreg = LinearRegression()
 ```
 
-#### Fitting the model to the train data
+#### Calculating predictions on the train set, and on the test set
 
 
 ```python
@@ -92,7 +94,7 @@ linreg.fit(X_train, y_train)
 
 
 
-#### Calculating predictions on the train set, and on the test set
+#### Calculating your residuals
 
 
 ```python
@@ -100,7 +102,8 @@ y_hat_train = linreg.predict(X_train)
 y_hat_test = linreg.predict(X_test)
 ```
 
-#### Calculating your residuals
+#### Calculating the Mean Squared Error
+A good way to compare overall performance is to compare the mean squarred error for the predicted values on the train and test sets.
 
 
 ```python
@@ -108,13 +111,14 @@ train_residuals = y_hat_train - y_train
 test_residuals = y_hat_test - y_test
 ```
 
-#### Calculating the Mean Squared Error
-A good way to compare overall performance is to compare the mean squarred error for the predicted values on the train and test sets.
+If your test error is substantially worse then our train error, this is a sign that our model doesn't generalize well to future cases.
 
 
 ```python
 from sklearn.metrics import mean_squared_error
 ```
+
+One simple way to demonstrate overfitting and underfitting is to alter the size of our train test split. By default, scikit learn's built in method allocates 25% of the data to the test set and 75% to the training set. Fitting a model on only 10% of the data is apt to lead to underfitting, while training a model on 99% of the data is apt to lead to overfitting.
 
 
 ```python
@@ -128,13 +132,13 @@ print('Test Mean Squarred Error:', test_mse)
     Test Mean Squarred Error: 22.547316698156916
 
 
-If your test error is substantially worse then our train error, this is a sign that our model doesn't generalize well to future cases.
-
-One simple way to demonstrate overfitting and underfitting is to alter the size of our train test split. By default, scikit learn's built in method allocates 25% of the data to the test set and 75% to the training set. Fitting a model on only 10% of the data is apt to lead to underfitting, while training a model on 99% of the data is apt to lead to overfitting.
-
 # Evaluating the effect of train-test split size
 
 Iterate over a range of train-test split sizes from .5 to .95. For each of these, generate a new train/test split sample. Fit a model to the training sample and calculate both the training error and the test error (mse) for each of these splits. Plot these two curves (train error vs. training size and test error vs. training size) on a graph.
+
+# Evaluating the effect of train-test split size: extension
+
+Repeat the previous example, but for each train-test split size, generate 100 iterations of models/errors and save the average train/test error. This will help account for any particularly good/bad models that might have resulted from poor/good splits in the data. 
 
 
 ```python
@@ -164,12 +168,12 @@ plt.legend()
 
 
 
-![png](index_files/index_23_1.png)
+![png](index_files/index_24_1.png)
 
 
-# Evaluating the effect of train-test split size: extension
+What's happening here? evaluate your result!
 
-Repeat the previous example, but for each train-test split size, generate 100 iterations of models/errors and save the average train/test error. This will help account for any particularly good/bad models that might have resulted from poor/good splits in the data. 
+##  Summary 
 
 
 ```python
@@ -203,11 +207,7 @@ plt.legend()
 
 
 
-![png](index_files/index_25_1.png)
+![png](index_files/index_27_1.png)
 
-
-What's happening here? evaluate your result!
-
-##  Summary 
 
 Congratulations! You now practiced your knowledge on MSE and on using train-test-split.
