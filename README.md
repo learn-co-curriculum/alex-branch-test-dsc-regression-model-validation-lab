@@ -49,18 +49,53 @@ y = None
 
 ## Perform a train-test-split
 
+
+```python
+
+```
+
 ## Apply your model to the train set
 
 #### Importing and initializing the model class
 
+
+```python
+
+```
+
 #### Fitting the model to the train data
+
+
+```python
+
+```
 
 #### Calculating predictions on the train set, and on the test set
 
+
+```python
+
+```
+
 #### Calculating your residuals
+
+
+```python
+
+```
 
 #### Calculating the Mean Squared Error
 A good way to compare overall performance is to compare the mean squarred error for the predicted values on the train and test sets.
+
+
+```python
+
+```
+
+
+```python
+
+```
 
 If your test error is substantially worse then our train error, this is a sign that our model doesn't generalize well to future cases.
 
@@ -83,7 +118,7 @@ Iterate over a range of train-test split sizes from .5 to .95. For each of these
 
 
 
-![png](index_files/index_14_1.png)
+![png](index_files/index_21_1.png)
 
 
 # Evaluating the effect of train-test split size: extension
@@ -103,7 +138,7 @@ Repeat the previous example, but for each train-test split size, generate 100 it
 
 
 
-![png](index_files/index_16_1.png)
+![png](index_files/index_23_1.png)
 
 
 What's happening here? evaluate your result!
