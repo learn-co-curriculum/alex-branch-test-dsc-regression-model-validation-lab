@@ -14,6 +14,11 @@ You will be able to:
 - Validate the model using the test data
 
 
+
+```python
+string = "show up"
+```
+
 ## Let's use our Boston Housing Data again!
 
 This time, let's only include the variables that were previously selected using recursive feature elimination. We included the code to preprocess below.
@@ -168,7 +173,7 @@ plt.legend()
 
 
 
-![png](index_files/index_24_1.png)
+![png](index_files/index_25_1.png)
 
 
 What's happening here? evaluate your result!
@@ -207,7 +212,7 @@ plt.legend()
 
 
 
-![png](index_files/index_27_1.png)
+![png](index_files/index_28_1.png)
 
 
 
