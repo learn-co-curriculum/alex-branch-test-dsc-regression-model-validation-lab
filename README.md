@@ -14,6 +14,37 @@ You will be able to:
 - Validate the model using the test data
 
 
+
+```python
+string = None
+```
+
+
+```python
+# __SOLUTION__
+string = "show up"
+```
+
+
+```python
+test = None # your code here
+test
+```
+
+
+
+
+    1
+
+
+
+
+```python
+# __SOLUTION
+test = 1
+test
+```
+
 ## Let's use our Boston Housing Data again!
 
 This time, let's only include the variables that were previously selected using recursive feature elimination. We included the code to preprocess below.
@@ -224,7 +255,7 @@ Iterate over a range of train-test split sizes from .5 to .95. For each of these
 
 
 
-![png](index_files/index_32_1.png)
+![png](index_files/index_36_1.png)
 
 
 # Evaluating the effect of train-test split size: extension
@@ -244,7 +275,7 @@ Repeat the previous example, but for each train-test split size, generate 100 it
 
 
 
-![png](index_files/index_34_1.png)
+![png](index_files/index_38_1.png)
 
 
 
@@ -276,7 +307,7 @@ plt.legend()
 
 
 
-![png](index_files/index_35_1.png)
+![png](index_files/index_39_1.png)
 
 
 What's happening here? evaluate your result!
@@ -316,7 +347,64 @@ plt.legend()
 
 
 
-![png](index_files/index_38_1.png)
+![png](index_files/index_42_1.png)
 
+
+
+```python
+def something:
+    pass
+```
+
+
+```python
+# __SOLUTION__
+def something:
+    return 1
+```
+
+
+```python
+hi = None
+bye = None
+```
+
+
+```python
+# __SOLUTION__ something else
+hi = "hi"
+bye = "bye"
+```
+
+
+```python
+1 + 1
+```
+
+
+
+
+    2
+
+
+
+
+```python
+1 + 1
+# __SOLUTION__
+```
+
+
+
+
+    2
+
+
+
+
+```python
+# __SOLUTION__   
+# this should appear on solution branch
+```
 
 Congratulations! You now practiced your knowledge on MSE and on using train-test-split.
