@@ -210,4 +210,29 @@ plt.legend()
 ![png](index_files/index_27_1.png)
 
 
+
+```python
+def something:
+    return 1
+```
+
+
+```python
+hi = "hi"
+bye = "bye"
+```
+
+
+```python
+1 + 1
+
+```
+
+
+
+
+    2
+
+
+
 Congratulations! You now practiced your knowledge on MSE and on using train-test-split.
