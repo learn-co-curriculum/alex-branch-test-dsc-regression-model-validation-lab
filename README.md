@@ -14,6 +14,31 @@ You will be able to:
 - Validate the model using the test data
 
 
+
+```python
+string = None
+```
+
+
+```python
+test = None # your code here
+test
+```
+
+
+
+
+    1
+
+
+
+
+```python
+# __SOLUTION
+test = 1
+test
+```
+
 ## Let's use our Boston Housing Data again!
 
 This time, let's only include the variables that were previously selected using recursive feature elimination. We included the code to preprocess below.
@@ -118,7 +143,7 @@ Iterate over a range of train-test split sizes from .5 to .95. For each of these
 
 
 
-![png](index_files/index_21_1.png)
+![png](index_files/index_24_1.png)
 
 
 # Evaluating the effect of train-test split size: extension
@@ -138,7 +163,7 @@ Repeat the previous example, but for each train-test split size, generate 100 it
 
 
 
-![png](index_files/index_23_1.png)
+![png](index_files/index_26_1.png)
 
 
 What's happening here? evaluate your result!
