@@ -145,4 +145,28 @@ What's happening here? evaluate your result!
 
 ##  Summary 
 
+
+```python
+def something:
+    pass
+```
+
+
+```python
+hi = None
+bye = None
+```
+
+
+```python
+1 + 1
+```
+
+
+
+
+    2
+
+
+
 Congratulations! You now practiced your knowledge on MSE and on using train-test-split.
