@@ -16,6 +16,25 @@ You will be able to:
 
 
 ```python
+x = 1
+```
+
+
+```python
+def whatever():
+    return 1
+whatever()
+```
+
+
+
+
+    1
+
+
+
+
+```python
 string = "show up"
 ```
 
@@ -173,7 +192,7 @@ plt.legend()
 
 
 
-![png](index_files/index_25_1.png)
+![png](index_files/index_27_1.png)
 
 
 What's happening here? evaluate your result!
@@ -212,7 +231,7 @@ plt.legend()
 
 
 
-![png](index_files/index_28_1.png)
+![png](index_files/index_30_1.png)
 
 
 
