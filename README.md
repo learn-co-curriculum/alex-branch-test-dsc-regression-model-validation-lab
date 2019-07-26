@@ -16,6 +16,51 @@ You will be able to:
 
 
 ```python
+# this will show up on master
+x = None
+```
+
+
+```python
+# __SOLUTION__    something
+x = 1
+```
+
+
+```python
+def whatever():
+    pass
+```
+
+
+
+
+    1
+
+
+
+
+```python
+# __SOLUTION__
+def whatever():
+    return 1
+whatever()
+```
+
+
+
+
+    1
+
+
+
+
+```python
+
+```
+
+
+```python
 string = None
 ```
 
@@ -255,7 +300,7 @@ Iterate over a range of train-test split sizes from .5 to .95. For each of these
 
 
 
-![png](index_files/index_36_1.png)
+![png](index_files/index_41_1.png)
 
 
 # Evaluating the effect of train-test split size: extension
@@ -275,7 +320,7 @@ Repeat the previous example, but for each train-test split size, generate 100 it
 
 
 
-![png](index_files/index_38_1.png)
+![png](index_files/index_43_1.png)
 
 
 
@@ -307,7 +352,7 @@ plt.legend()
 
 
 
-![png](index_files/index_39_1.png)
+![png](index_files/index_44_1.png)
 
 
 What's happening here? evaluate your result!
@@ -347,7 +392,7 @@ plt.legend()
 
 
 
-![png](index_files/index_42_1.png)
+![png](index_files/index_47_1.png)
 
 
 
