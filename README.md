@@ -16,6 +16,30 @@ You will be able to:
 
 
 ```python
+# this will show up on master
+x = None
+```
+
+
+```python
+def whatever():
+    pass
+```
+
+
+
+
+    1
+
+
+
+
+```python
+
+```
+
+
+```python
 string = None
 ```
 
@@ -143,7 +167,7 @@ Iterate over a range of train-test split sizes from .5 to .95. For each of these
 
 
 
-![png](index_files/index_24_1.png)
+![png](index_files/index_27_1.png)
 
 
 # Evaluating the effect of train-test split size: extension
@@ -163,7 +187,7 @@ Repeat the previous example, but for each train-test split size, generate 100 it
 
 
 
-![png](index_files/index_26_1.png)
+![png](index_files/index_29_1.png)
 
 
 What's happening here? evaluate your result!
