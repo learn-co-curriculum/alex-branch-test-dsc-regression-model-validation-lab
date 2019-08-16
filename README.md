@@ -49,14 +49,30 @@ whatever()
 
 
 ```python
+test = None
+test
+test
+test
+```
+
+
+```python
+# __SOLUTION__
+test = 'test'
+test
+test
+test
+```
+
+
+```python
 string = "show up"
 ```
 
 
 ```python
-test
-test
-test
+# __SOLUTION__
+string = "show up"
 ```
 
 ## Let's use our Boston Housing Data again!
@@ -213,7 +229,7 @@ plt.legend()
 
 
 
-![png](index_files/index_30_1.png)
+![png](index_files/index_32_1.png)
 
 
 What's happening here? evaluate your result!
@@ -252,7 +268,7 @@ plt.legend()
 
 
 
-![png](index_files/index_33_1.png)
+![png](index_files/index_35_1.png)
 
 
 
