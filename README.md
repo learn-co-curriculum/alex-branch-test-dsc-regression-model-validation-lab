@@ -21,12 +21,6 @@ x = 12
 
 
 ```python
-# __SOLUTION__
-x = 12
-```
-
-
-```python
 def whatever():
     pass
 whatever()
@@ -41,14 +35,6 @@ whatever()
 
 
 ```python
-# __SOLUTION__
-def whatever():
-    return 1
-whatever()
-```
-
-
-```python
 test = None
 test
 test
@@ -57,21 +43,6 @@ test
 
 
 ```python
-# __SOLUTION__
-test = 'test'
-test
-test
-test
-```
-
-
-```python
-string = "show up"
-```
-
-
-```python
-# __SOLUTION__
 string = "show up"
 ```
 
@@ -229,7 +200,7 @@ plt.legend()
 
 
 
-![png](index_files/index_32_1.png)
+![png](index_files/index_28_1.png)
 
 
 What's happening here? evaluate your result!
@@ -268,7 +239,7 @@ plt.legend()
 
 
 
-![png](index_files/index_35_1.png)
+![png](index_files/index_31_1.png)
 
 
 
