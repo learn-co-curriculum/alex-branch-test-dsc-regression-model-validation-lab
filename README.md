@@ -16,13 +16,19 @@ You will be able to:
 
 
 ```python
-x = 1
+x = 12
+```
+
+
+```python
+# __SOLUTION__
+x = 12
 ```
 
 
 ```python
 def whatever():
-    return 1
+    pass
 whatever()
 ```
 
@@ -32,6 +38,14 @@ whatever()
     1
 
 
+
+
+```python
+# __SOLUTION__
+def whatever():
+    return 1
+whatever()
+```
 
 
 ```python
@@ -199,7 +213,7 @@ plt.legend()
 
 
 
-![png](index_files/index_28_1.png)
+![png](index_files/index_30_1.png)
 
 
 What's happening here? evaluate your result!
@@ -238,7 +252,7 @@ plt.legend()
 
 
 
-![png](index_files/index_31_1.png)
+![png](index_files/index_33_1.png)
 
 
 
