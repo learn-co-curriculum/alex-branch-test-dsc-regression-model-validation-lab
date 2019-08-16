@@ -85,8 +85,15 @@ test
 
 
 ```python
-# __SOLUTION
 test = 1
+test
+```
+
+
+```python
+# __SOLUTION__
+test
+test
 test
 ```
 
@@ -300,7 +307,7 @@ Iterate over a range of train-test split sizes from .5 to .95. For each of these
 
 
 
-![png](index_files/index_41_1.png)
+![png](index_files/index_42_1.png)
 
 
 # Evaluating the effect of train-test split size: extension
@@ -320,7 +327,7 @@ Repeat the previous example, but for each train-test split size, generate 100 it
 
 
 
-![png](index_files/index_43_1.png)
+![png](index_files/index_44_1.png)
 
 
 
@@ -352,7 +359,7 @@ plt.legend()
 
 
 
-![png](index_files/index_44_1.png)
+![png](index_files/index_45_1.png)
 
 
 What's happening here? evaluate your result!
@@ -392,7 +399,7 @@ plt.legend()
 
 
 
-![png](index_files/index_47_1.png)
+![png](index_files/index_48_1.png)
 
 
 
