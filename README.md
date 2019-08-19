@@ -16,7 +16,14 @@ You will be able to:
 
 
 ```python
-x = 12
+x = None
+```
+
+# A markdown cell
+
+
+```python
+y = None
 ```
 
 
@@ -25,13 +32,6 @@ def whatever():
     pass
 whatever()
 ```
-
-
-
-
-    1
-
-
 
 
 ```python
@@ -200,7 +200,7 @@ plt.legend()
 
 
 
-![png](index_files/index_28_1.png)
+![png](index_files/index_30_1.png)
 
 
 What's happening here? evaluate your result!
@@ -239,7 +239,7 @@ plt.legend()
 
 
 
-![png](index_files/index_31_1.png)
+![png](index_files/index_33_1.png)
 
 
 
