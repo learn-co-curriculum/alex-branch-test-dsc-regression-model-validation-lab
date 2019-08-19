@@ -16,13 +16,26 @@ You will be able to:
 
 
 ```python
-x = 12
+x = None
 ```
 
 
 ```python
 # __SOLUTION__
 x = 12
+```
+
+# A markdown cell
+
+
+```python
+y = None
+```
+
+
+```python
+# __SOLUTION__
+y = 12
 ```
 
 
@@ -33,19 +46,19 @@ whatever()
 ```
 
 
-
-
-    1
-
-
-
-
 ```python
 # __SOLUTION__
 def whatever():
     return 1
 whatever()
 ```
+
+
+
+
+    1
+
+
 
 
 ```python
@@ -229,7 +242,7 @@ plt.legend()
 
 
 
-![png](index_files/index_32_1.png)
+![png](index_files/index_35_1.png)
 
 
 What's happening here? evaluate your result!
@@ -268,7 +281,7 @@ plt.legend()
 
 
 
-![png](index_files/index_35_1.png)
+![png](index_files/index_38_1.png)
 
 
 
