@@ -19,12 +19,26 @@ You will be able to:
 x = 12
 ```
 
+# A markdown cell
+
+
+```python
+y = 12
+```
+
 
 ```python
 def whatever():
     return 1
 whatever()
 ```
+
+
+
+
+    1
+
+
 
 
 ```python
