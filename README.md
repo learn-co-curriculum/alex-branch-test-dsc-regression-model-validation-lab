@@ -1,5 +1,5 @@
 
-# Regression Model Validation - Lab!
+# Regression Model Validation - Lab
 
 ## Introduction!
 
@@ -16,7 +16,7 @@ You will be able to:
 
 
 ```python
-x = 22
+x = 99
 ```
 
 # A markdown cell
