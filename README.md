@@ -16,13 +16,13 @@ You will be able to:
 
 
 ```python
-x = None
+x = "idk"
 ```
 
 
 ```python
 # __SOLUTION__
-x = 22
+x = 99
 ```
 
 # A markdown cell
