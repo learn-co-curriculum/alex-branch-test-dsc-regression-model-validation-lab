@@ -22,7 +22,7 @@ x = None
 
 ```python
 # __SOLUTION__
-x = 14
+x = 22
 ```
 
 # A markdown cell
