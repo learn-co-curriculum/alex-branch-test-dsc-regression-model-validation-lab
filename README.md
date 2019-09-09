@@ -16,7 +16,7 @@ You will be able to:
 
 
 ```python
-x = 14
+x = 22
 ```
 
 # A markdown cell
