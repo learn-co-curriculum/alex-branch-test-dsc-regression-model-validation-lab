@@ -16,7 +16,12 @@ You will be able to:
 
 
 ```python
-x = 99
+x = 999
+```
+
+
+```python
+g = 'bye'
 ```
 
 # A markdown cell
