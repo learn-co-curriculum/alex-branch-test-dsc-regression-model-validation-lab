@@ -19,6 +19,11 @@ You will be able to:
 x = "idk"
 ```
 
+
+```python
+f = 'hi'
+```
+
 # A markdown cell
 
 
@@ -200,7 +205,7 @@ plt.legend()
 
 
 
-![png](index_files/index_30_1.png)
+![png](index_files/index_31_1.png)
 
 
 What's happening here? evaluate your result!
@@ -239,7 +244,7 @@ plt.legend()
 
 
 
-![png](index_files/index_33_1.png)
+![png](index_files/index_34_1.png)
 
 
 
