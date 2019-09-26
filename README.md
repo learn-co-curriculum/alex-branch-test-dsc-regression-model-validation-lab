@@ -22,7 +22,18 @@ x = "idk"
 
 ```python
 # __SOLUTION__
-x = 99
+x = 999
+```
+
+
+```python
+f = 'hi'
+```
+
+
+```python
+#__SOLUTION__
+g = 'bye'
 ```
 
 # A markdown cell
@@ -242,7 +253,7 @@ plt.legend()
 
 
 
-![png](index_files/index_35_1.png)
+![png](index_files/index_37_1.png)
 
 
 What's happening here? evaluate your result!
@@ -281,7 +292,7 @@ plt.legend()
 
 
 
-![png](index_files/index_38_1.png)
+![png](index_files/index_40_1.png)
 
 
 
