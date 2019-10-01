@@ -108,7 +108,16 @@ def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
         subprocess.call(["rm", "-rf", "index_files"])
 
         # write index.ipynb
+        print('about to write')
+        print(branch)
+        print("\n\n")
+        print(notebook)
         write_new_notebook(notebook)
+        print("\n\n\n\n\n\n\n\n\n\n\n\n")
+        f = open("index.ipynb", "r")
+        print(f.read())
+
+
 
         # generate markdown
         notebook_to_markdown()
@@ -144,9 +153,9 @@ git_ssh_identity_file = os.path.expanduser('~/.ssh/id_rsa')
 git_ssh_cmd = 'ssh -i %s' % git_ssh_identity_file
 Git().custom_environment(GIT_SSH_COMMAND=git_ssh_cmd)
 
-repo = Repo(os.getcwd())
-print(os.getcwd())
-print(os.environ)
+repo = Repo(os.environ['GITHUB_WORKSPACE'])
+# print(os.getcwd())
+# print(os.environ)
 
 try:
     repo.git.checkout(CURRICULUM_BRANCH)
@@ -155,9 +164,9 @@ except GitCommandError:
 
 commit_message = get_commit_message(repo)
 
-notebook_to_markdown()
-
-add_and_commit(repo, commit_message)
+# notebook_to_markdown()
+#
+# add_and_commit(repo, commit_message)
 # print(f"pushing to remote {CURRICULUM_BRANCH} branch")
 # push(CURRICULUM_BRANCH)
 
