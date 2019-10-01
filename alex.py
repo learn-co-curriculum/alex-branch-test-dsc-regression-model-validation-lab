@@ -134,7 +134,7 @@ def add_and_commit(repo, commit_msg):
         print("Nothing to commit")
 
 def push(branch):
-    subprocess.call(["git", "push", "origin", branch])
+    os.system(f"git push origin {branch}")
 
 # RUN
 # ======================
@@ -156,7 +156,7 @@ commit_message = get_commit_message(repo)
 notebook_to_markdown()
 
 add_and_commit(repo, commit_message)
-print(f"pushing to remote {CURRICULUM_BRANCH} branch")
+# print(f"pushing to remote {CURRICULUM_BRANCH} branch")
 # push(CURRICULUM_BRANCH)
 
 notebook_json   = get_notebook_json()
