@@ -5,8 +5,6 @@ from git import Repo, Git, GitCommandError
 import sys
 
 print('Heyyyyyyyyyyyyyyyyyyyyyyyy')
-print(os.environ['GITHUB_ACTOR'])
-print(os.environ['GITHUB_TOKEN'])
 
 # CONSTANTS
 SOLUTION_TAG = "__SOLUTION__"
@@ -14,6 +12,8 @@ CURRICULUM_BRANCH = "curriculum"
 MASTER_BRANCH = "master"
 SOLUTION_BRANCH = "solution"
 CUSTOM_COMMIT_MSG_FLAG = "-m"
+TOKEN = os.environ['GITHUB_TOKEN']
+USER = os.environ['GITHUB_ACTOR']
 
 # FUNCTIONS
 
@@ -137,9 +137,7 @@ def add_and_commit(repo, commit_msg):
 # ======================
 
 # Identity
-# git_ssh_identity_file = os.path.expanduser('~/.ssh/id_rsa')
-# git_ssh_cmd = 'ssh -i %s' % git_ssh_identity_file
-# Git().custom_environment(GIT_SSH_COMMAND=git_ssh_cmd)
+Git().custom_environment(GITHUB_TOKEN=TOKEN)
 
 repo = Repo(os.getcwd())
 
