@@ -46,7 +46,7 @@ y = None
 
 ```python
 # __SOLUTION__
-y = 12
+y = 100
 ```
 
 
