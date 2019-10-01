@@ -137,7 +137,9 @@ def add_and_commit(repo, commit_msg):
 # ======================
 
 # Identity
-Git().custom_environment(GITHUB_TOKEN=TOKEN)
+# git_ssh_identity_file = os.path.expanduser('~/.ssh/id_rsa')
+# git_ssh_cmd = 'ssh -i %s' % git_ssh_identity_file
+Git().custom_environment(GITHUB_TOKEN=TOKEN, GITHUB_USER=USER)
 
 repo = Repo(os.getcwd())
 
