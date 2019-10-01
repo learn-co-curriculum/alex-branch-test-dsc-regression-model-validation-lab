@@ -116,7 +116,7 @@ def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
         # add, commit, push
         add_and_commit(repo, msg)
         print(f"pushing to remote {branch} branch")
-        repo.git.push("origin", branch)
+        push(branch)
 
 def get_commit_message(repo):
     # get commit message from repo or custom flag
@@ -133,13 +133,16 @@ def add_and_commit(repo, commit_msg):
     except GitCommandError:
         print("Nothing to commit")
 
+def push(branch):
+    subprocess.call(["git", "push", "origin", branch])
+
 # RUN
 # ======================
 
 # Identity
-# git_ssh_identity_file = os.path.expanduser('~/.ssh/id_rsa')
-# git_ssh_cmd = 'ssh -i %s' % git_ssh_identity_file
-# Git().custom_environment(GIT_SSH_COMMAND=git_ssh_cmd)
+git_ssh_identity_file = os.path.expanduser('~/.ssh/id_rsa')
+git_ssh_cmd = 'ssh -i %s' % git_ssh_identity_file
+Git().custom_environment(GIT_SSH_COMMAND=git_ssh_cmd)
 
 repo = Repo(os.getcwd())
 
@@ -154,7 +157,7 @@ notebook_to_markdown()
 
 add_and_commit(repo, commit_message)
 print(f"pushing to remote {CURRICULUM_BRANCH} branch")
-repo.git.push("origin", CURRICULUM_BRANCH)
+# push(CURRICULUM_BRANCH)
 
 notebook_json   = get_notebook_json()
 master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
