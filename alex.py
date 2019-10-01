@@ -5,6 +5,7 @@ from git import Repo, Git, GitCommandError
 import sys
 
 print('Heyyyyyyyyyyyyyyyyyyyyyyyy')
+print(os.environ['GITHUB_ACTOR'])
 
 # CONSTANTS
 SOLUTION_TAG = "__SOLUTION__"
