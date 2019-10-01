@@ -149,9 +149,9 @@ def push(branch):
 # ======================
 
 # Identity
-git_ssh_identity_file = os.path.expanduser('~/.ssh/id_rsa')
-git_ssh_cmd = 'ssh -i %s' % git_ssh_identity_file
-Git().custom_environment(GIT_SSH_COMMAND=git_ssh_cmd)
+# git_ssh_identity_file = os.path.expanduser('~/.ssh/id_rsa')
+# git_ssh_cmd = 'ssh -i %s' % git_ssh_identity_file
+# Git().custom_environment(GIT_SSH_COMMAND=git_ssh_cmd)
 
 repo = Repo(os.environ['GITHUB_WORKSPACE'])
 # print(os.getcwd())
