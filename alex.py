@@ -146,7 +146,7 @@ Git().custom_environment(GIT_SSH_COMMAND=git_ssh_cmd)
 
 repo = Repo(os.getcwd())
 print(os.getcwd())
-print(os.environ(['GITHUB_WORKSPACE']))
+print(os.environ)
 
 try:
     repo.git.checkout(CURRICULUM_BRANCH)
