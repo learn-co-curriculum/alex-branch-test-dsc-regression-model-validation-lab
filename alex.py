@@ -6,6 +6,7 @@ import sys
 
 print('Heyyyyyyyyyyyyyyyyyyyyyyyy')
 print(os.environ['GITHUB_ACTOR'])
+print(os.environ['GITHUB_TOKEN'])
 
 # CONSTANTS
 SOLUTION_TAG = "__SOLUTION__"
