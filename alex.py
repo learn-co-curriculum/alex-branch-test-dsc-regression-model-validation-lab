@@ -131,13 +131,11 @@ def push(branch):
     os.system(f"git push origin {branch}")
 
 def checkout(branch):
-    # git checkout -b <branch> --track <remote>/<branch>
-    os.system(f"git checkout -b {branch} --track origin/{branch}")
+    os.system(f"git checkout --track origin/{branch}")
 
 # RUN
 # ======================
 print("RUNNING...")
-print(os.environ)
 # Identity
 # git_ssh_identity_file = os.path.expanduser('~/.ssh/id_rsa')
 # git_ssh_cmd = 'ssh -i %s' % git_ssh_identity_file
