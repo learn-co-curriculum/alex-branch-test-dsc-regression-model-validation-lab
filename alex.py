@@ -124,14 +124,6 @@ def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
         print(f"pushing to remote {branch} branch")
         push(branch)
 
-def get_commit_message(repo):
-    # get commit message from repo or custom flag
-    sys_args = list(sys.argv)
-    i = sys_args.index(CUSTOM_COMMIT_MSG_FLAG) if CUSTOM_COMMIT_MSG_FLAG in sys_args else None
-
-    return sys_args[i + 1] if i else repo.head.commit.message
-
-
 def add_and_commit(repo, commit_msg):
     repo.git.add(".")
     try:
@@ -154,18 +146,12 @@ repo = Repo(os.environ['GITHUB_WORKSPACE'])
 # print(os.getcwd())
 # print(os.environ)
 
-try:
-    repo.git.checkout(CURRICULUM_BRANCH)
-except GitCommandError:
-    raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
+# try:
+#     repo.git.checkout(CURRICULUM_BRANCH)
+# except GitCommandError:
+#     raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
 
-commit_message = get_commit_message(repo)
-
-# notebook_to_markdown()
-#
-# add_and_commit(repo, commit_message)
-# print(f"pushing to remote {CURRICULUM_BRANCH} branch")
-# push(CURRICULUM_BRANCH)
+commit_message = repo.head.commit.message
 
 notebook_json   = get_notebook_json()
 master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
@@ -173,6 +159,3 @@ sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
 
 sync_branch(repo, MASTER_BRANCH, master_notebook, msg=commit_message)
 sync_branch(repo, SOLUTION_BRANCH, sol_notebook, msg=commit_message)
-
-# leave user on curriculum branch
-repo.git.checkout(CURRICULUM_BRANCH)
