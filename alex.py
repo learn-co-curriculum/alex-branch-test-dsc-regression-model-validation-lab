@@ -88,7 +88,8 @@ def notebook_to_markdown():
     os.call(["mv", "index.md", "README.md"])
 
 
-def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
+# def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
+def sync_branch(branch, notebook, msg="Curriculum Auto-Sync"):
     # switch to branch, do nothing if does not exist
     try:
         checkout(branch)
@@ -176,9 +177,12 @@ except GitCommandError:
 # os.system(f"git commit -m '{time}'")
 # os.system("git push origin master")
 
+commit_message = time.time()
+
 notebook_json   = get_notebook_json()
 master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
 # sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
 
 sync_branch(repo, MASTER_BRANCH, master_notebook, msg=commit_message)
+sync_branch(MASTER_BRANCH, master_notebook, msg=commit_message)
 # sync_branch(repo, SOLUTION_BRANCH, sol_notebook, msg=commit_message)
