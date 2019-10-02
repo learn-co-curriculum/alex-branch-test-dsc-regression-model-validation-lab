@@ -123,6 +123,7 @@ def add_and_commit(repo, commit_msg):
         print("Nothing to commit")
 
 def push(branch):
+    print(f"about to push to: {branch}")
     os.system(f"git push origin {branch}")
 
 # RUN
