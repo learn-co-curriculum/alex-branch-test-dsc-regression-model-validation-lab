@@ -183,6 +183,5 @@ notebook_json   = get_notebook_json()
 master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
 sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
 
-# sync_branch(repo, MASTER_BRANCH, master_notebook, msg=commit_message)
 sync_branch(MASTER_BRANCH, master_notebook, msg=commit_message)
-sync_branch(repo, SOLUTION_BRANCH, sol_notebook, msg=commit_message)
+sync_branch(SOLUTION_BRANCH, sol_notebook, msg=commit_message)
