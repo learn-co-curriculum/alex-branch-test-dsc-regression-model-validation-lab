@@ -139,12 +139,13 @@ print(os.environ)
 # os.system(f"git config --global github.token {os.environ['GITHUB_TOKEN']}")
 # os.system(f"git config --global github.user {os.environ['GITHUB_ACTOR']}")
 # os.system(f"git config --list")
-# git remote rm origin
 # git remote add origin https://scuzzlebuzzle:<MYTOKEN>@github.com/scuzzlebuzzle/ol3-1.git
 
 repo = Repo(os.environ['GITHUB_WORKSPACE'])
-# print(os.getcwd())
-# print(os.environ)
+
+# Configure push access using token
+os.system("git remote rm origin")
+os.system(f"git remote add origin https://{os.environ['GITHUB_ACTOR']}:{os.environ['GITHUB_TOKEN']}@github.com/{os.environ['GITHUB_REPOSITORY']}.git")
 
 try:
     repo.git.checkout(CURRICULUM_BRANCH)
