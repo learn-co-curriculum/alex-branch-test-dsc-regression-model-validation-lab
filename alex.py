@@ -148,7 +148,7 @@ print("RUNNING...")
 repo = Repo(os.environ['GITHUB_WORKSPACE'])
 commit_message = repo.head.commit.message
 os.system(f"git config github.token {os.environ['GITHUB_TOKEN']}")
-os.system(f"git config github.user {os.environ['GITHUB_ACTOR']}")
+os.system(f"git config user.name {os.environ['GITHUB_ACTOR']}")
 
 os.system("git remote -v")
 os.system("git branch -a")
@@ -168,7 +168,7 @@ except GitCommandError:
 
 notebook_json   = get_notebook_json()
 master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
-sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
+# sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
 
 sync_branch(repo, MASTER_BRANCH, master_notebook, msg=commit_message)
-sync_branch(repo, SOLUTION_BRANCH, sol_notebook, msg=commit_message)
+# sync_branch(repo, SOLUTION_BRANCH, sol_notebook, msg=commit_message)
