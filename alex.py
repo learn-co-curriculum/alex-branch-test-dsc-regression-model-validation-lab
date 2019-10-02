@@ -88,10 +88,8 @@ def notebook_to_markdown():
 def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
     # switch to branch, do nothing if does not exist
     try:
-        checkout(branch)
-        # repo.git.checkout(branch)
+        repo.git.checkout(branch)
         branch_exists = True
-        print(f"{branch} branch FOUND")
     except GitCommandError:
         print(f"{branch} branch DNE")
         branch_exists = False
@@ -101,7 +99,7 @@ def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
         # (the notebook and readme will be overwritten in the subsequent steps)
         # Interesting use of the `checkout` command
         # https://superuser.com/questions/692794/how-can-i-get-all-the-files-from-one-git-branch-and-put-them-into-the-current-b/1431858#1431858
-        # repo.git.checkout(CURRICULUM_BRANCH, ".")
+        repo.git.checkout(CURRICULUM_BRANCH, ".")
 
         # delete current images, they'll be regenerated along with the notebook
         subprocess.call(["rm", "-rf", "index_files"])
@@ -130,12 +128,10 @@ def push(branch):
     print(f"about to push to: {branch}")
     os.system(f"git push origin {branch}")
 
-def checkout(branch):
-    os.system(f"git checkout --track origin/{branch}")
-
 # RUN
 # ======================
 print("RUNNING...")
+print(os.environ)
 # Identity
 # git_ssh_identity_file = os.path.expanduser('~/.ssh/id_rsa')
 # git_ssh_cmd = 'ssh -i %s' % git_ssh_identity_file
@@ -151,15 +147,15 @@ commit_message = repo.head.commit.message
 
 # Configure push access using token
 os.system("git remote rm origin")
-os.system(f"git remote add origin https://{os.environ['GITHUB_ACTOR']}:{os.environ['GITHUB_TOKEN']}@github.com/{os.environ['GITHUB_REPOSITORY']}.git")
+os.system(f"git remote add origin https://learn-co-curriculum:{os.environ['GITHUB_TOKEN']}@github.com/{os.environ['GITHUB_REPOSITORY']}.git")
 
-os.system("git branch -a")
 os.system("git remote -v")
+os.system("git branch -a")
 # try:
 #     repo.git.checkout(CURRICULUM_BRANCH)
 # except GitCommandError:
 #     raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
-#
+
 #
 # notebook_json   = get_notebook_json()
 # master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
