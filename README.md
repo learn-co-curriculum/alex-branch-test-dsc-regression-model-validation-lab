@@ -1,5 +1,4 @@
-
-# Regression Model Validation - Lab
+# TURTLES!!!! - Lab
 
 ## Introduction!
 
@@ -16,7 +15,7 @@ You will be able to:
 
 
 ```python
-x = 999
+x = 'TURTLES'
 ```
 
 
