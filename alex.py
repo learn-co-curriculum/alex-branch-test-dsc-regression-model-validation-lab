@@ -84,8 +84,8 @@ def write_new_notebook(notebook):
     f.close()
 
 def notebook_to_markdown():
-    os.call(["jupyter", "nbconvert", "index.ipynb",  "--to", "markdown"])
-    os.call(["mv", "index.md", "README.md"])
+    os.system("jupyter nbconvert index.ipynb --to markdown")
+    os.system("mv index.md README.md")
 
 
 # def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
