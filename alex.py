@@ -117,7 +117,7 @@ def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
         add_and_commit(msg)
         push(branch)
 
-def add_and_commit(repo, commit_msg):
+def add_and_commit(commit_msg):
     os.system("git add .")
     os.system(f"git commit -m {commit_msg}")
 
