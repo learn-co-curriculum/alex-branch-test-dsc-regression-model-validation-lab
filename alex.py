@@ -89,7 +89,7 @@ def notebook_to_markdown():
 def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
     # switch to branch, do nothing if does not exist
     try:
-        repo.git.checkout(branch)
+        checkout(branch)
         branch_exists = True
     except GitCommandError:
         print(f"{branch} branch DNE")
@@ -157,8 +157,7 @@ commit_message = repo.head.commit.message
 os.system("git remote -v")
 os.system("git branch -a")
 
-os.system("git checkout --track origin/master")
-os.system("git branch")
+
 
 # Configure push access using token
 # os.system("git remote rm origin")
@@ -166,10 +165,10 @@ os.system("git branch")
 #
 # os.system("git remote -v")
 # os.system("git branch -a")
-# # try:
-# #     repo.git.checkout(CURRICULUM_BRANCH)
-# # except GitCommandError:
-# #     raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
+try:
+    checkout(CURRICULUM_BRANCH)
+except GitCommandError:
+    raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
 #
 #
 # notebook_json   = get_notebook_json()
