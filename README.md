@@ -1,4 +1,4 @@
-# mutliple words in one commit~! - Lab
+# Does it work from Github~! - Lab
 
 ## Introduction!
 
