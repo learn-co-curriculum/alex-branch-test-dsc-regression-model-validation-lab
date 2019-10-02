@@ -177,7 +177,7 @@ except GitCommandError:
 # os.system(f"git commit -m '{time}'")
 # os.system("git push origin master")
 
-commit_message = time.time()
+commit_message = str(subprocess.check_output(["git", "log", "-1", "--pretty=format:%s"]))
 
 notebook_json   = get_notebook_json()
 master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
