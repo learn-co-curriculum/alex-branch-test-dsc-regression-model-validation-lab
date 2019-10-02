@@ -84,8 +84,8 @@ def write_new_notebook(notebook):
     f.close()
 
 def notebook_to_markdown():
-    subprocess.call(["jupyter", "nbconvert", "index.ipynb",  "--to", "markdown"])
-    subprocess.call(["mv", "index.md", "README.md"])
+    os.call(["jupyter", "nbconvert", "index.ipynb",  "--to", "markdown"])
+    os.call(["mv", "index.md", "README.md"])
 
 
 def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
@@ -102,7 +102,7 @@ def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
         # (the notebook and readme will be overwritten in the subsequent steps)
         # Interesting use of the `checkout` command
         # https://superuser.com/questions/692794/how-can-i-get-all-the-files-from-one-git-branch-and-put-them-into-the-current-b/1431858#1431858
-        repo.git.checkout(CURRICULUM_BRANCH, ".")
+        # repo.git.checkout(CURRICULUM_BRANCH, ".")
 
         # delete current images, they'll be regenerated along with the notebook
         os.system("rm -rf index_files")
@@ -149,8 +149,8 @@ print("RUNNING...")
 # repo = Repo(os.getcwd())
 # repo = Repo(os.environ['GITHUB_WORKSPACE'])
 # commit_message = repo.head.commit.message
-# os.system(f"git config github.token {os.environ['GITHUB_TOKEN']}")
-# os.system(f"git config user.name {os.environ['GITHUB_ACTOR']}")
+os.system(f"git config github.token {os.environ['GITHUB_TOKEN']}")
+os.system(f"git config user.name {os.environ['GITHUB_ACTOR']}")
 os.system(f"git remote set-url origin https://learn-co-curriculum:{os.environ['GITHUB_TOKEN']}@github.com/{os.environ['GITHUB_REPOSITORY']}.git")
 
 os.system("git remote -v")
@@ -169,19 +169,16 @@ try:
 except GitCommandError:
     raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
 
-checkout(MASTER_BRANCH)
-time = time.time()
-os.system(f"touch {time} && echo hi >> {time}")
-os.system("git add .")
-os.system(f"git commit -m '{time}'")
-os.system("git push origin master")
+# checkout(MASTER_BRANCH)
+# time = time.time()
+# os.system(f"touch {time} && echo hi >> {time}")
+# os.system("git add .")
+# os.system(f"git commit -m '{time}'")
+# os.system("git push origin master")
 
-
-# notebook_json   = get_notebook_json()
-# os.system("jupyter nbconvert index.ipynb --to markdown")
-# os.system("mv index.md README.md")
-# master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
+notebook_json   = get_notebook_json()
+master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
 # sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
 
-# sync_branch(repo, MASTER_BRANCH, master_notebook, msg=commit_message)
+sync_branch(repo, MASTER_BRANCH, master_notebook, msg=commit_message)
 # sync_branch(repo, SOLUTION_BRANCH, sol_notebook, msg=commit_message)
