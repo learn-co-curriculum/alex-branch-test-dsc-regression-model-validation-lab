@@ -1,4 +1,4 @@
-# WHY!!!! - Lab
+# oneword~! - Lab
 
 ## Introduction!
 
