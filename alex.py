@@ -2,8 +2,10 @@ print('AT THE TOP OF FILE...')
 import json
 import os
 import subprocess
-from git import Repo, Git, GitCommandError
+# from git import Repo, Git, GitCommandError
 import sys
+
+import time
 
 # CONSTANTS
 SOLUTION_TAG = "__SOLUTION__"
@@ -166,9 +168,19 @@ try:
 except GitCommandError:
     raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
 
-notebook_json   = get_notebook_json()
-master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
+checkout(MASTER_BRANCH)
+time = time.time()
+os.system(f"touch {time} && echo hi >> {time}")
+os.system("git add .")
+os.system(f"git commit -m '{time}'")
+os.system("git push origin master")
+
+
+# notebook_json   = get_notebook_json()
+# os.system("jupyter nbconvert index.ipynb --to markdown")
+# os.system("mv index.md README.md")
+# master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
 # sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
 
-sync_branch(repo, MASTER_BRANCH, master_notebook, msg=commit_message)
+# sync_branch(repo, MASTER_BRANCH, master_notebook, msg=commit_message)
 # sync_branch(repo, SOLUTION_BRANCH, sol_notebook, msg=commit_message)
