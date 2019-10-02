@@ -149,8 +149,8 @@ print("RUNNING...")
 # repo = Repo(os.getcwd())
 # repo = Repo(os.environ['GITHUB_WORKSPACE'])
 # commit_message = repo.head.commit.message
-os.system(f"git config github.token {os.environ['GITHUB_TOKEN']}")
-os.system(f"git config user.name {os.environ['GITHUB_ACTOR']}")
+# os.system(f"git config github.token {os.environ['GITHUB_TOKEN']}")
+# os.system(f"git config user.name {os.environ['GITHUB_ACTOR']}")
 os.system(f"git remote set-url origin https://learn-co-curriculum:{os.environ['GITHUB_TOKEN']}@github.com/{os.environ['GITHUB_REPOSITORY']}.git")
 
 os.system("git remote -v")
