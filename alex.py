@@ -91,6 +91,7 @@ def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
         repo.git.checkout(branch)
         branch_exists = True
     except GitCommandError:
+        print(f"{branch} branch DNE")
         branch_exists = False
 
     if branch_exists:
@@ -142,17 +143,17 @@ print(os.environ)
 # git remote add origin https://scuzzlebuzzle:<MYTOKEN>@github.com/scuzzlebuzzle/ol3-1.git
 
 repo = Repo(os.environ['GITHUB_WORKSPACE'])
+commit_message = repo.head.commit.message
 
 # Configure push access using token
 os.system("git remote rm origin")
 os.system(f"git remote add origin https://{os.environ['GITHUB_ACTOR']}:{os.environ['GITHUB_TOKEN']}@github.com/{os.environ['GITHUB_REPOSITORY']}.git")
 
-try:
-    repo.git.checkout(CURRICULUM_BRANCH)
-except GitCommandError:
-    raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
+# try:
+#     repo.git.checkout(CURRICULUM_BRANCH)
+# except GitCommandError:
+#     raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
 
-commit_message = repo.head.commit.message
 
 notebook_json   = get_notebook_json()
 master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
