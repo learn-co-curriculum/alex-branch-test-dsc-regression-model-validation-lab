@@ -153,7 +153,7 @@ os.system(f"cd {REPO_DIR_NAME}")
 # os.system(f"git config --list")
 # git remote add origin https://scuzzlebuzzle:<MYTOKEN>@github.com/scuzzlebuzzle/ol3-1.git
 
-repo = Repo(os.cwd())
+repo = Repo(os.getcwd())
 commit_message = repo.head.commit.message
 
 # Configure push access using token
