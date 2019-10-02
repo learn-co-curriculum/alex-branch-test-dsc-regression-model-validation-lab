@@ -134,6 +134,7 @@ print("RUNNING...")
 # git_ssh_identity_file = os.path.expanduser('~/.ssh/id_rsa')
 # git_ssh_cmd = 'ssh -i %s' % git_ssh_identity_file
 # Git().custom_environment(GIT_SSH_COMMAND=git_ssh_cmd)
+os.system(f"git config --global github.token {os.environ['GITHUB_TOKEN']}")
 
 repo = Repo(os.environ['GITHUB_WORKSPACE'])
 # print(os.getcwd())
@@ -146,9 +147,9 @@ except GitCommandError:
 
 commit_message = repo.head.commit.message
 
-# notebook_json   = get_notebook_json()
-# master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
-# sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
-#
-# sync_branch(repo, MASTER_BRANCH, master_notebook, msg=commit_message)
-# sync_branch(repo, SOLUTION_BRANCH, sol_notebook, msg=commit_message)
+notebook_json   = get_notebook_json()
+master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
+sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
+
+sync_branch(repo, MASTER_BRANCH, master_notebook, msg=commit_message)
+sync_branch(repo, SOLUTION_BRANCH, sol_notebook, msg=commit_message)
