@@ -88,8 +88,10 @@ def notebook_to_markdown():
 def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
     # switch to branch, do nothing if does not exist
     try:
-        repo.git.checkout(branch)
+        checkout(branch)
+        # repo.git.checkout(branch)
         branch_exists = True
+        print(f"{branch} branch FOUND")
     except GitCommandError:
         print(f"{branch} branch DNE")
         branch_exists = False
@@ -99,7 +101,7 @@ def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
         # (the notebook and readme will be overwritten in the subsequent steps)
         # Interesting use of the `checkout` command
         # https://superuser.com/questions/692794/how-can-i-get-all-the-files-from-one-git-branch-and-put-them-into-the-current-b/1431858#1431858
-        repo.git.checkout(CURRICULUM_BRANCH, ".")
+        # repo.git.checkout(CURRICULUM_BRANCH, ".")
 
         # delete current images, they'll be regenerated along with the notebook
         subprocess.call(["rm", "-rf", "index_files"])
@@ -127,6 +129,10 @@ def add_and_commit(repo, commit_msg):
 def push(branch):
     print(f"about to push to: {branch}")
     os.system(f"git push origin {branch}")
+
+def checkout(branch):
+    # git checkout -b <branch> --track <remote>/<branch>
+    os.system(f"git checkout -b {branch} --track origin/{branch}")
 
 # RUN
 # ======================
