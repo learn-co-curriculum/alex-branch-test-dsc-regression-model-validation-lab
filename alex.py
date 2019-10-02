@@ -147,8 +147,8 @@ print("RUNNING...")
 # git remote add origin https://scuzzlebuzzle:<MYTOKEN>@github.com/scuzzlebuzzle/ol3-1.git
 
 # repo = Repo(os.getcwd())
-repo = Repo(os.environ['GITHUB_WORKSPACE'])
-commit_message = repo.head.commit.message
+# repo = Repo(os.environ['GITHUB_WORKSPACE'])
+# commit_message = repo.head.commit.message
 os.system(f"git config github.token {os.environ['GITHUB_TOKEN']}")
 os.system(f"git config user.name {os.environ['GITHUB_ACTOR']}")
 
