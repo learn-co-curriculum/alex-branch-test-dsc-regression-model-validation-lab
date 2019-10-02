@@ -2,7 +2,7 @@ print('AT THE TOP OF FILE...')
 import json
 import os
 import subprocess
-from git import Repo, Git, GitCommandError
+# from git import Repo, Git, GitCommandError
 import sys
 
 # CONSTANTS
@@ -11,6 +11,7 @@ CURRICULUM_BRANCH = "curriculum"
 MASTER_BRANCH = "master"
 SOLUTION_BRANCH = "solution"
 CUSTOM_COMMIT_MSG_FLAG = "-m"
+REPO_DIR_NAME = "tmp"
 
 # FUNCTIONS
 
@@ -134,6 +135,14 @@ def checkout(branch):
 # RUN
 # ======================
 print("RUNNING...")
+
+os.system(f"git clone https://{os.environ['GITHUB_TOKEN']}@github.com/{os.environ['GITHUB_REPOSITORY']}.git {REPO_DIR_NAME}")
+os.system(f"cd {REPO_DIR_NAME}")
+
+os.system("pwd")
+os.system("ls .")
+os.system("git remote -v")
+os.system("git branch -a")
 # Identity
 # git_ssh_identity_file = os.path.expanduser('~/.ssh/id_rsa')
 # git_ssh_cmd = 'ssh -i %s' % git_ssh_identity_file
@@ -144,24 +153,24 @@ print("RUNNING...")
 # os.system(f"git config --list")
 # git remote add origin https://scuzzlebuzzle:<MYTOKEN>@github.com/scuzzlebuzzle/ol3-1.git
 
-repo = Repo(os.environ['GITHUB_WORKSPACE'])
-commit_message = repo.head.commit.message
+# repo = Repo(os.environ['GITHUB_WORKSPACE'])
+# commit_message = repo.head.commit.message
 
 # Configure push access using token
-os.system("git remote rm origin")
-os.system(f"git remote add origin https://learn-co-curriculum:{os.environ['GITHUB_TOKEN']}@github.com/{os.environ['GITHUB_REPOSITORY']}.git")
-
-os.system("git remote -v")
-os.system("git branch -a")
-# try:
-#     repo.git.checkout(CURRICULUM_BRANCH)
-# except GitCommandError:
-#     raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
-
-
-notebook_json   = get_notebook_json()
-master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
-sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
-
-sync_branch(repo, MASTER_BRANCH, master_notebook, msg=commit_message)
+# os.system("git remote rm origin")
+# os.system(f"git remote add origin https://learn-co-curriculum:{os.environ['GITHUB_TOKEN']}@github.com/{os.environ['GITHUB_REPOSITORY']}.git")
+#
+# os.system("git remote -v")
+# os.system("git branch -a")
+# # try:
+# #     repo.git.checkout(CURRICULUM_BRANCH)
+# # except GitCommandError:
+# #     raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
+#
+#
+# notebook_json   = get_notebook_json()
+# master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
+# sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
+#
+# sync_branch(repo, MASTER_BRANCH, master_notebook, msg=commit_message)
 sync_branch(repo, SOLUTION_BRANCH, sol_notebook, msg=commit_message)
