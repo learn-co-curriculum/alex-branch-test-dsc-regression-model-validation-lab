@@ -2,7 +2,7 @@ print('AT THE TOP OF FILE...')
 import json
 import os
 import subprocess
-# from git import Repo, Git, GitCommandError
+from git import Repo, Git, GitCommandError
 import sys
 
 # CONSTANTS
