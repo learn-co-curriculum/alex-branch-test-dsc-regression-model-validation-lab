@@ -1,11 +1,9 @@
-print('wow')
+print('AT THE TOP OF FILE...')
 import json
 import os
 import subprocess
 from git import Repo, Git, GitCommandError
 import sys
-
-print('Heyyyyyyyyyyyyyyyyyyyyyyyy')
 
 # CONSTANTS
 SOLUTION_TAG = "__SOLUTION__"
@@ -106,9 +104,11 @@ def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
         subprocess.call(["rm", "-rf", "index_files"])
 
         # write index.ipynb
+        print("ABOUT TO WRITE THE NEW NOTEBOOK...")
         write_new_notebook(notebook)
 
         # generate markdown
+        print("ABOUT TO CONVERT NB TO MARKDOWN...")
         notebook_to_markdown()
 
         # add, commit, push
@@ -129,7 +129,7 @@ def push(branch):
 
 # RUN
 # ======================
-
+print("RUNNING...")
 # Identity
 # git_ssh_identity_file = os.path.expanduser('~/.ssh/id_rsa')
 # git_ssh_cmd = 'ssh -i %s' % git_ssh_identity_file
