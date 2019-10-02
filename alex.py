@@ -153,15 +153,17 @@ commit_message = repo.head.commit.message
 os.system("git remote rm origin")
 os.system(f"git remote add origin https://{os.environ['GITHUB_ACTOR']}:{os.environ['GITHUB_TOKEN']}@github.com/{os.environ['GITHUB_REPOSITORY']}.git")
 
+os.system("git branch -a")
+os.system("git remote -v")
 # try:
 #     repo.git.checkout(CURRICULUM_BRANCH)
 # except GitCommandError:
 #     raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
-
-
-notebook_json   = get_notebook_json()
-master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
-sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
-
-sync_branch(repo, MASTER_BRANCH, master_notebook, msg=commit_message)
-sync_branch(repo, SOLUTION_BRANCH, sol_notebook, msg=commit_message)
+#
+#
+# notebook_json   = get_notebook_json()
+# master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
+# sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
+#
+# sync_branch(repo, MASTER_BRANCH, master_notebook, msg=commit_message)
+# sync_branch(repo, SOLUTION_BRANCH, sol_notebook, msg=commit_message)
