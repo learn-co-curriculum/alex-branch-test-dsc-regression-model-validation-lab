@@ -151,7 +151,7 @@ print("RUNNING...")
 # commit_message = repo.head.commit.message
 os.system(f"git config github.token {os.environ['GITHUB_TOKEN']}")
 os.system(f"git config user.name {os.environ['GITHUB_ACTOR']}")
-os.system(f"git remote set-url origin https://learn-co-curriculum:{os.environ['GITHUB_TOKEN']}@github.com/{os.environ['GITHUB_REPO']}.git")
+os.system(f"git remote set-url origin https://learn-co-curriculum:{os.environ['GITHUB_TOKEN']}@github.com/{os.environ['GITHUB_REPOSITORY']}.git")
 
 os.system("git remote -v")
 os.system("git branch -a")
