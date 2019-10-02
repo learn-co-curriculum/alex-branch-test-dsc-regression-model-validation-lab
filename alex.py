@@ -105,16 +105,7 @@ def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
         subprocess.call(["rm", "-rf", "index_files"])
 
         # write index.ipynb
-        print('about to write')
-        print(branch)
-        print("\n\n")
-        print(notebook)
         write_new_notebook(notebook)
-        print("\n\n\n\n\n\n\n\n\n\n\n\n")
-        f = open("index.ipynb", "r")
-        print(f.read())
-
-
 
         # generate markdown
         notebook_to_markdown()
