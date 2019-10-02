@@ -146,10 +146,10 @@ repo = Repo(os.environ['GITHUB_WORKSPACE'])
 # print(os.getcwd())
 # print(os.environ)
 
-# try:
-#     repo.git.checkout(CURRICULUM_BRANCH)
-# except GitCommandError:
-#     raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
+try:
+    repo.git.checkout(CURRICULUM_BRANCH)
+except GitCommandError:
+    raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
 
 commit_message = repo.head.commit.message
 
