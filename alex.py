@@ -130,14 +130,17 @@ def push(branch):
 # RUN
 # ======================
 print("RUNNING...")
+print(os.environ)
 # Identity
 # git_ssh_identity_file = os.path.expanduser('~/.ssh/id_rsa')
 # git_ssh_cmd = 'ssh -i %s' % git_ssh_identity_file
 # Git().custom_environment(GIT_SSH_COMMAND=git_ssh_cmd)
-os.system(f"git config --list")
-os.system(f"git config --global github.token {os.environ['GITHUB_TOKEN']}")
-os.system(f"git config --global github.user {os.environ['GITHUB_ACTOR']}")
-os.system(f"git config --list")
+# os.system(f"git config --list")
+# os.system(f"git config --global github.token {os.environ['GITHUB_TOKEN']}")
+# os.system(f"git config --global github.user {os.environ['GITHUB_ACTOR']}")
+# os.system(f"git config --list")
+# git remote rm origin
+# git remote add origin https://scuzzlebuzzle:<MYTOKEN>@github.com/scuzzlebuzzle/ol3-1.git
 
 repo = Repo(os.environ['GITHUB_WORKSPACE'])
 # print(os.getcwd())
