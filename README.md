@@ -1,4 +1,4 @@
-# hidden!!! - Lab
+# no scripts dir!!! - Lab
 
 ## Introduction!
 
