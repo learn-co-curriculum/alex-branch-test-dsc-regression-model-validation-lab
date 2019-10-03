@@ -123,10 +123,10 @@ def checkout(branch):
 # RUN
 # ======================
 
-try:
-    checkout(CURRICULUM_BRANCH)
-except GitCommandError:
-    raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
+# try:
+#     checkout(CURRICULUM_BRANCH)
+# except GitCommandError:
+#     raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
 
 commit_message = subprocess.check_output(["git", "log", "-1", "--pretty=format:%s"]).decode("utf-8")
 

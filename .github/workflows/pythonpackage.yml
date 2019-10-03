@@ -30,6 +30,7 @@ jobs:
         git remote set-url origin https://learn-co-curriculum:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
     - name: Add Notebook to Curriculum Branch
       run: |
+        git checkout --track origin/curriculum
         jupyter nbconvert index.ipynb --to markdown
         mv index.md README.md
         git add .
