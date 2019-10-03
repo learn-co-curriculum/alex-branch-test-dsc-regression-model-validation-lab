@@ -1,4 +1,4 @@
-# cup of cofee~! - Lab
+# cup of water~! - Lab
 
 ## Introduction!
 
