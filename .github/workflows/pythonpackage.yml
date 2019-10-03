@@ -38,7 +38,7 @@ jobs:
         echo `git push origin curriculum`
     - name: Create New Master Notebook
       run: |
-        python curriculum_scripts/master.py
+        python curriculum_resources/master.py
     - name: Sync Master Branch
       run: |
         git checkout --track origin/master
@@ -47,14 +47,14 @@ jobs:
         mv master_index.ipynb index.ipynb
         jupyter nbconvert index.ipynb --to markdown
         mv index.md README.md
-        git add .
-        git checkout curriculum_scripts
+        git add -u
+        git reset -- curriculum_resources/*
         echo `git commit -m "$(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code no matter what
         echo `git push origin master`
     - name: Create New Solution Notebook
       run: |
-        git checkout curriculum
-        python curriculum_scripts/solution.py
+        git checkout -f curriculum
+        python curriculum_resources/solution.py
     - name: Sync Solution Branch
       run: |
         git checkout --track origin/solution
@@ -63,7 +63,7 @@ jobs:
         mv solution_index.ipynb index.ipynb
         jupyter nbconvert index.ipynb --to markdown
         mv index.md README.md
-        git add .
-        git checkout curriculum_scripts
+        git add -u
+        git reset -- curriculum_resources/*
         echo `git commit -m "$(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code no matter what
         echo `git push origin solution`
