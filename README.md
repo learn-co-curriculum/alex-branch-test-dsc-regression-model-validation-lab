@@ -1,5 +1,4 @@
-
-# Regression Model Validation - Lab
+# sweatshirt~! - Lab
 
 ## Introduction!
 
@@ -22,7 +21,7 @@ x = "idk"
 
 ```python
 # __SOLUTION__
-x = 999
+x = 'TURTLES'
 ```
 
 
