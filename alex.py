@@ -73,7 +73,7 @@ def create_sol_notebook(nb):
     return nb
 
 def write_new_notebook(notebook):
-    f = open("index.ipynb", "w")
+    f = open("master_index.ipynb", "w")
     f.write(json.dumps(notebook))
     f.close()
 
@@ -124,11 +124,16 @@ def checkout(branch):
 
 # RUN
 # ======================
-commit_message = subprocess.check_output(["git", "log", "-1", "--pretty=format:%s"]).decode("utf-8")
+# commit_message = subprocess.check_output(["git", "log", "-1", "--pretty=format:%s"]).decode("utf-8")
 #
+# checkout(CURRICULUM_BRANCH)
 notebook_json   = get_notebook_json()
 master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
-sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
 
-sync_branch(MASTER_BRANCH, master_notebook, msg=commit_message)
-sync_branch(SOLUTION_BRANCH, sol_notebook, msg=commit_message)
+write_new_notebook(master_notebook)
+
+
+# sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
+
+# sync_branch(MASTER_BRANCH, master_notebook, msg=commit_message)
+# sync_branch(SOLUTION_BRANCH, sol_notebook, msg=commit_message)
