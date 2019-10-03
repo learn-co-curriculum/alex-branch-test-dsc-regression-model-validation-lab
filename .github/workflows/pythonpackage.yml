@@ -1,4 +1,4 @@
-name: Python package
+name: Curriculum Branch Workflow
 
 on:
   push:
@@ -21,8 +21,30 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Run branch merger
+    - name: Configure Github Credentials
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
+        git config --global github.token $GITHUB_TOKEN
+        git config --global user.name $GITHUB_ACTOR
+        git remote set-url origin https://learn-co-curriculum:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+    - name: Add Markdown Readme to Curriculum Branch
+      run: |
+        git checkout --track origin/curriculum
+        jupyter nbconvert index.ipynb --to markdown
+        mv index.md README.md
+        echo `git add . && git commit -m "Create Markdown: $(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code
+        echo `git push origin curriculum`
+    - name: Create New Master Notebook
+      run: |
         python alex.py
+    - name: Sync Master Branch
+      run: |
+        git checkout --track origin/master
+        git checkout curriculum .
+        rm -rf index_files
+        mv master_index.ipynb index.ipynb
+        jupyter nbconvert index.ipynb --to markdown
+        mv index.md README.md
+        echo `git add . && git commit -m "Sync Master: $(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code
+        echo `git push origin master`
