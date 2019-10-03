@@ -72,7 +72,7 @@ def create_sol_notebook(nb):
     nb.update({"cells": cells})
     return nb
 
-def write_new_notebook(notebook):
+def write_new_notebook(branch, notebook):
     f = open("index.ipynb", "w")
     f.write(json.dumps(notebook))
     f.close()
@@ -123,25 +123,10 @@ def checkout(branch):
 # RUN
 # ======================
 
-# try:
-#     checkout(CURRICULUM_BRANCH)
-# except GitCommandError:
-#     raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
-
-commit_message = subprocess.check_output(["git", "log", "-1", "--pretty=format:%s"]).decode("utf-8")
-
-# push the new notebook to curriculum
-# generate markdown
-# notebook_to_markdown()
-#
-# # add, commit, push
-# add_and_commit(f"Create Markdown: ${commit_message}")
-# push(CURRICULUM_BRANCH)
-
-
 notebook_json   = get_notebook_json()
 master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
 sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
+
 
 sync_branch(MASTER_BRANCH, master_notebook, msg=commit_message)
 sync_branch(SOLUTION_BRANCH, sol_notebook, msg=commit_message)
