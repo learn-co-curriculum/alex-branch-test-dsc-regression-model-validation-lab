@@ -1,4 +1,4 @@
-# cup of water~! - Lab
+# cool!!! - Lab
 
 ## Introduction!
 
