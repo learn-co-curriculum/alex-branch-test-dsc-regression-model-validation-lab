@@ -38,7 +38,7 @@ jobs:
         echo `git push origin curriculum`
     - name: Create New Master Notebook
       run: |
-        python .github/scripts/master.py
+        python scripts/master.py
     - name: Sync Master Branch
       run: |
         git checkout --track origin/master
@@ -52,7 +52,7 @@ jobs:
     - name: Create New Solution Notebook
       run: |
         git checkout curriculum
-        python .github/scripts/solution.py
+        python scripts/solution.py
     - name: Sync Solution Branch
       run: |
         git checkout --track origin/solution
