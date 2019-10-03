@@ -43,12 +43,12 @@ jobs:
       run: |
         git checkout --track origin/master
         git checkout curriculum .
+        git checkout curriculum_scripts
         rm -rf index_files
         mv master_index.ipynb index.ipynb
         jupyter nbconvert index.ipynb --to markdown
         mv index.md README.md
         git add .
-        git checkout curriculum_scripts
         echo `git commit -m "$(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code no matter what
         echo `git push origin master`
     - name: Create New Solution Notebook
@@ -59,11 +59,11 @@ jobs:
       run: |
         git checkout --track origin/solution
         git checkout curriculum .
+        git checkout curriculum_scripts
         rm -rf index_files
         mv solution_index.ipynb index.ipynb
         jupyter nbconvert index.ipynb --to markdown
         mv index.md README.md
         git add .
-        git checkout curriculum_scripts
         echo `git commit -m "$(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code no matter what
         echo `git push origin solution`
