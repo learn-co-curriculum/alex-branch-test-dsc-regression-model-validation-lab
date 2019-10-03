@@ -1,4 +1,4 @@
-# cool!!! - Lab
+# lantern!!! - Lab
 
 ## Introduction!
 
