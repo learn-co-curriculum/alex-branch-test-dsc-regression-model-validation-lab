@@ -90,25 +90,25 @@ def sync_branch(branch, notebook, msg="Curriculum Auto-Sync"):
     # except GitCommandError:
     #     branch_exists = False
 
-    if branch_exists:
-        # get all files from curriculum branch and put onto this branch,
-        # (the notebook and readme will be overwritten in the subsequent steps)
-        # Interesting use of the `checkout` command
-        # https://superuser.com/questions/692794/how-can-i-get-all-the-files-from-one-git-branch-and-put-them-into-the-current-b/1431858#1431858
-        os.system(f"git checkout ${CURRICULUM_BRANCH} .")
-        os.system("git status")
-        # delete current images, they'll be regenerated along with the notebook
-        os.system("rm -rf index_files")
+    # if branch_exists:
+    # get all files from curriculum branch and put onto this branch,
+    # (the notebook and readme will be overwritten in the subsequent steps)
+    # Interesting use of the `checkout` command
+    # https://superuser.com/questions/692794/how-can-i-get-all-the-files-from-one-git-branch-and-put-them-into-the-current-b/1431858#1431858
+    os.system(f"git checkout ${CURRICULUM_BRANCH} .")
+    os.system("git status")
+    # delete current images, they'll be regenerated along with the notebook
+    os.system("rm -rf index_files")
 
-        # write index.ipynb
-        write_new_notebook(notebook)
+    # write index.ipynb
+    write_new_notebook(notebook)
 
-        # generate markdown
-        notebook_to_markdown()
+    # generate markdown
+    notebook_to_markdown()
 
-        # add, commit, push
-        add_and_commit(msg)
-        push(branch)
+    # add, commit, push
+    add_and_commit(msg)
+    push(branch)
 
 def add_and_commit(commit_msg):
     os.system("git add .")
