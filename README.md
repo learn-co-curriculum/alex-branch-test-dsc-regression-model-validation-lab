@@ -1,4 +1,4 @@
-# no scripts dir!!! - Lab
+# Curr Resources doesnt show up!!! - Lab
 
 ## Introduction!
 
