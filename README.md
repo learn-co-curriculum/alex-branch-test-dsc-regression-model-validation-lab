@@ -20,19 +20,7 @@ x = "idk"
 
 
 ```python
-# __SOLUTION__
-x = 'TURTLES'
-```
-
-
-```python
 f = 'hi'
-```
-
-
-```python
-#__SOLUTION__
-g = 'bye'
 ```
 
 # A markdown cell
@@ -44,31 +32,10 @@ y = None
 
 
 ```python
-# __SOLUTION__
-y = 100
-```
-
-
-```python
 def whatever():
     pass
 whatever()
 ```
-
-
-```python
-# __SOLUTION__
-def whatever():
-    return 1
-whatever()
-```
-
-
-
-
-    1
-
-
 
 
 ```python
@@ -80,21 +47,6 @@ test
 
 
 ```python
-# __SOLUTION__
-test = 'test'
-test
-test
-test
-```
-
-
-```python
-string = "show up"
-```
-
-
-```python
-# __SOLUTION__
 string = "show up"
 ```
 
@@ -252,7 +204,7 @@ plt.legend()
 
 
 
-![png](index_files/index_37_1.png)
+![png](index_files/index_31_1.png)
 
 
 What's happening here? evaluate your result!
@@ -291,7 +243,7 @@ plt.legend()
 
 
 
-![png](index_files/index_40_1.png)
+![png](index_files/index_34_1.png)
 
 
 
