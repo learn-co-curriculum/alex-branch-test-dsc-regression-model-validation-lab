@@ -1,4 +1,4 @@
-# Curr Resources doesnt show up!!! - Lab
+# Lets test this again... - Lab
 
 ## Introduction!
 
