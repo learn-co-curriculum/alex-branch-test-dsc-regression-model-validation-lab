@@ -17,18 +17,19 @@ jobs:
       with:
         python-version: '3.7'
         architecture: 'x64'
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+
     - name: Configure Github Credentials
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git config --global github.token $GITHUB_TOKEN
-        git config --global user.name "Alex Griffith"
-        git config --global user.email "alexalexgriffith@gmail.com"
-        git remote set-url origin https://learn-co-curriculum:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+
     - name: Add Markdown Readme to Curriculum Branch
       run: |
         git checkout --track origin/curriculum
@@ -36,9 +37,11 @@ jobs:
         mv index.md README.md
         echo `git add . && git commit -m "$(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code
         echo `git push origin curriculum`
+
     - name: Create New Master Notebook
       run: |
         python curriculum_resources/master.py
+
     - name: Sync Master Branch
       run: |
         git checkout --track origin/master
@@ -51,10 +54,12 @@ jobs:
         git reset -- curriculum_resources/*
         echo `git commit -m "$(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code no matter what
         echo `git push origin master`
+
     - name: Create New Solution Notebook
       run: |
         git checkout -f curriculum
         python curriculum_resources/solution.py
+
     - name: Sync Solution Branch
       run: |
         git checkout --track origin/solution
