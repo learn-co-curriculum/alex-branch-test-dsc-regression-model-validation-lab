@@ -1,4 +1,4 @@
-# lantern!!! - Lab
+# hidden!!! - Lab
 
 ## Introduction!
 
