@@ -95,9 +95,9 @@ def sync_branch(branch, notebook, msg="Curriculum Auto-Sync"):
     # (the notebook and readme will be overwritten in the subsequent steps)
     # Interesting use of the `checkout` command
     # https://superuser.com/questions/692794/how-can-i-get-all-the-files-from-one-git-branch-and-put-them-into-the-current-b/1431858#1431858
-    os.system("git branch")
-    os.system(f"git rebase ${CURRICULUM_BRANCH}")
-    os.system("git status")
+    os.system("git branch") # log
+    os.system(f"git checkout ${CURRICULUM_BRANCH} .")
+    os.system("ls") # log
     # delete current images, they'll be regenerated along with the notebook
     os.system("rm -rf index_files")
 
