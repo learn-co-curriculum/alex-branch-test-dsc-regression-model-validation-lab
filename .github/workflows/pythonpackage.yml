@@ -37,7 +37,7 @@ jobs:
         echo `git push origin curriculum`
     - name: Create New Master Notebook
       run: |
-        python alex.py
+        python master.py
     - name: Sync Master Branch
       run: |
         git checkout --track origin/master
@@ -48,3 +48,17 @@ jobs:
         mv index.md README.md
         echo `git add . && git commit -m "Sync Master: $(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code
         echo `git push origin master`
+    - name: Create New Solution Notebook
+      run: |
+        git checkout curriculum
+        python solution.py
+    - name: Sync Solution Branch
+      run: |
+        git checkout --track origin/solution
+        git checkout curriculum .
+        rm -rf index_files
+        mv solution_index.ipynb index.ipynb
+        jupyter nbconvert index.ipynb --to markdown
+        mv index.md README.md
+        echo `git add . && git commit -m "Sync Solution: $(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code
+        echo `git push origin solution`
