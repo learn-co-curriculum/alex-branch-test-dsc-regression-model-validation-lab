@@ -28,6 +28,13 @@ jobs:
         git config --global github.token $GITHUB_TOKEN
         git config --global user.name $GITHUB_ACTOR
         git remote set-url origin https://learn-co-curriculum:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+    - name: Add Notebook to Curriculum Branch
+      run: |
+        jupyter nbconvert index.ipynb --to markdown
+        mv index.md README.md
+        git add .
+        git commit -m "Create Markdown: $(git log -1 --pretty=%s)"
+        git push origin curriculum
     - name: Create Master and Solution
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
