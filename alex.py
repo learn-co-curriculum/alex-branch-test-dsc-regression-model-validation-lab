@@ -3,15 +3,11 @@ import os
 import subprocess
 import sys
 
-import time
-
 # CONSTANTS
 SOLUTION_TAG = "__SOLUTION__"
 CURRICULUM_BRANCH = "curriculum"
 MASTER_BRANCH = "master"
 SOLUTION_BRANCH = "solution"
-CUSTOM_COMMIT_MSG_FLAG = "-m"
-REPO_DIR_NAME = "tmp"
 
 # FUNCTIONS
 
@@ -86,14 +82,12 @@ def notebook_to_markdown():
     os.system("mv index.md README.md")
 
 
-# def sync_branch(repo, branch, notebook, msg="Curriculum Auto-Sync"):
 def sync_branch(branch, notebook, msg="Curriculum Auto-Sync"):
     # switch to branch, do nothing if does not exist
     try:
         checkout(branch)
         branch_exists = True
     except GitCommandError:
-        print(f"{branch} branch DNE")
         branch_exists = False
 
     if branch_exists:
@@ -103,14 +97,14 @@ def sync_branch(branch, notebook, msg="Curriculum Auto-Sync"):
         # https://superuser.com/questions/692794/how-can-i-get-all-the-files-from-one-git-branch-and-put-them-into-the-current-b/1431858#1431858
         os.system(f"git checkout ${CURRICULUM_BRANCH} .")
 
-        # # delete current images, they'll be regenerated along with the notebook
-        # os.system("rm -rf index_files")
-        #
-        # # write index.ipynb
-        # write_new_notebook(notebook)
-        #
-        # # generate markdown
-        # notebook_to_markdown()
+        # delete current images, they'll be regenerated along with the notebook
+        os.system("rm -rf index_files")
+
+        # write index.ipynb
+        write_new_notebook(notebook)
+
+        # generate markdown
+        notebook_to_markdown()
 
         # add, commit, push
         add_and_commit(msg)
@@ -129,45 +123,21 @@ def checkout(branch):
 # RUN
 # ======================
 
-# os.system(f"git clone https://{os.environ['GITHUB_TOKEN']}@github.com/{os.environ['GITHUB_REPOSITORY']}.git {REPO_DIR_NAME}")
-# os.system(f"cd {REPO_DIR_NAME}")
-
-# os.system("pwd")
-# os.system("ls .")
-# Identity
-# git_ssh_identity_file = os.path.expanduser('~/.ssh/id_rsa')
-# git_ssh_cmd = 'ssh -i %s' % git_ssh_identity_file
-# Git().custom_environment(GIT_SSH_COMMAND=git_ssh_cmd)
-# os.system(f"git config --list")
-# os.system(f"git config --list")
-# git remote add origin https://scuzzlebuzzle:<MYTOKEN>@github.com/scuzzlebuzzle/ol3-1.git
-
-# repo = Repo(os.getcwd())
-# repo = Repo(os.environ['GITHUB_WORKSPACE'])
-# commit_message = repo.head.commit.message
-# os.system(f"git config github.token {os.environ['GITHUB_TOKEN']}")
-# os.system(f"git config user.name {os.environ['GITHUB_ACTOR']}")
-# os.system(f"git remote set-url origin https://learn-co-curriculum:{os.environ['GITHUB_TOKEN']}@github.com/{os.environ['GITHUB_REPOSITORY']}.git")
-
-# Configure push access using token
-# os.system("git remote rm origin")
-# os.system(f"git remote add origin https://learn-co-curriculum:{os.environ['GITHUB_TOKEN']}@github.com/{os.environ['GITHUB_REPOSITORY']}.git")
-#
-# os.system("git remote -v")
-# os.system("git branch -a")
 try:
     checkout(CURRICULUM_BRANCH)
 except GitCommandError:
     raise Exception(f"A branch called {CURRICULUM_BRANCH} must exist")
 
-# checkout(MASTER_BRANCH)
-# time = time.time()
-# os.system(f"touch {time} && echo hi >> {time}")
-# os.system("git add .")
-# os.system(f"git commit -m '{time}'")
-# os.system("git push origin master")
-
 commit_message = subprocess.check_output(["git", "log", "-1", "--pretty=format:%s"]).decode("utf-8")
+
+# push the new notebook to curriculum
+# generate markdown
+notebook_to_markdown()
+
+# add, commit, push
+add_and_commit(f"Create Markdown: ${f}")
+push(CURRICULUM_BRANCH)
+
 
 notebook_json   = get_notebook_json()
 master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
