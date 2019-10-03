@@ -103,14 +103,14 @@ def sync_branch(branch, notebook, msg="Curriculum Auto-Sync"):
         # https://superuser.com/questions/692794/how-can-i-get-all-the-files-from-one-git-branch-and-put-them-into-the-current-b/1431858#1431858
         os.system(f"git checkout ${CURRICULUM_BRANCH} .")
 
-        # delete current images, they'll be regenerated along with the notebook
-        os.system("rm -rf index_files")
-
-        # write index.ipynb
-        write_new_notebook(notebook)
-
-        # generate markdown
-        notebook_to_markdown()
+        # # delete current images, they'll be regenerated along with the notebook
+        # os.system("rm -rf index_files")
+        #
+        # # write index.ipynb
+        # write_new_notebook(notebook)
+        #
+        # # generate markdown
+        # notebook_to_markdown()
 
         # add, commit, push
         add_and_commit(msg)
