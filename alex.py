@@ -132,11 +132,11 @@ commit_message = subprocess.check_output(["git", "log", "-1", "--pretty=format:%
 
 # push the new notebook to curriculum
 # generate markdown
-notebook_to_markdown()
-
-# add, commit, push
-add_and_commit(f"Create Markdown: ${commit_message}")
-push(CURRICULUM_BRANCH)
+# notebook_to_markdown()
+#
+# # add, commit, push
+# add_and_commit(f"Create Markdown: ${commit_message}")
+# push(CURRICULUM_BRANCH)
 
 
 notebook_json   = get_notebook_json()
