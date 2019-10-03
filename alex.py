@@ -84,11 +84,11 @@ def notebook_to_markdown():
 
 def sync_branch(branch, notebook, msg="Curriculum Auto-Sync"):
     # switch to branch, do nothing if does not exist
-    try:
-        checkout(branch)
-        branch_exists = True
-    except GitCommandError:
-        branch_exists = False
+    # try:
+    checkout(branch)
+    #     branch_exists = True
+    # except GitCommandError:
+    #     branch_exists = False
 
     if branch_exists:
         # get all files from curriculum branch and put onto this branch,
@@ -96,7 +96,7 @@ def sync_branch(branch, notebook, msg="Curriculum Auto-Sync"):
         # Interesting use of the `checkout` command
         # https://superuser.com/questions/692794/how-can-i-get-all-the-files-from-one-git-branch-and-put-them-into-the-current-b/1431858#1431858
         os.system(f"git checkout ${CURRICULUM_BRANCH} .")
-
+        os.system("git status")
         # delete current images, they'll be regenerated along with the notebook
         os.system("rm -rf index_files")
 
@@ -112,6 +112,7 @@ def sync_branch(branch, notebook, msg="Curriculum Auto-Sync"):
 
 def add_and_commit(commit_msg):
     os.system("git add .")
+    os.system("git status")
     os.system(f"git commit -m \"{commit_msg}\"")
 
 def push(branch):
@@ -123,10 +124,10 @@ def checkout(branch):
 # RUN
 # ======================
 commit_message = subprocess.check_output(["git", "log", "-1", "--pretty=format:%s"]).decode("utf-8")
-
-notebook_json   = get_notebook_json()
-master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
-sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
-
-sync_branch(MASTER_BRANCH, master_notebook, msg=commit_message)
-sync_branch(SOLUTION_BRANCH, sol_notebook, msg=commit_message)
+#
+# notebook_json   = get_notebook_json()
+# master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
+# sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
+#
+# sync_branch(MASTER_BRANCH, master_notebook, msg=commit_message)
+# sync_branch(SOLUTION_BRANCH, sol_notebook, msg=commit_message)
