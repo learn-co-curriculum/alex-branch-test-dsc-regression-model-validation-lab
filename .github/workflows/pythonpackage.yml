@@ -53,11 +53,11 @@ jobs:
         echo `git push origin master`
     - name: Create New Solution Notebook
       run: |
-        git checkout curriculum
+        git checkout -f curriculum
         python curriculum_resources/solution.py
     - name: Sync Solution Branch
       run: |
-        git checkout -f --track origin/solution
+        git checkout --track origin/solution
         git checkout curriculum .
         rm -rf index_files
         mv solution_index.ipynb index.ipynb
