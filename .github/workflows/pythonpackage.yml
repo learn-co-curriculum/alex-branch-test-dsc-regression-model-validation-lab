@@ -57,7 +57,7 @@ jobs:
         python curriculum_resources/solution.py
     - name: Sync Solution Branch
       run: |
-        git checkout --track origin/solution
+        git checkout -f --track origin/solution
         git checkout curriculum .
         rm -rf index_files
         mv solution_index.ipynb index.ipynb
