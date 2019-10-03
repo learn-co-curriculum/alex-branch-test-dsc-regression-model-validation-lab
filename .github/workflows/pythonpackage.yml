@@ -47,7 +47,9 @@ jobs:
         mv master_index.ipynb index.ipynb
         jupyter nbconvert index.ipynb --to markdown
         mv index.md README.md
-        echo `git add . && git commit -m "$(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code
+        git add .
+        git checkout scripts
+        echo `git commit -m "$(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code no matter what
         echo `git push origin master`
     - name: Create New Solution Notebook
       run: |
@@ -62,5 +64,7 @@ jobs:
         mv solution_index.ipynb index.ipynb
         jupyter nbconvert index.ipynb --to markdown
         mv index.md README.md
-        echo `git add . && git commit -m "$(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code
+        git add .
+        git checkout scripts
+        echo `git commit -m "$(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code no matter what
         echo `git push origin solution`
