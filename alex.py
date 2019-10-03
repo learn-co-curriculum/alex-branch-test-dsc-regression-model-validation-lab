@@ -125,9 +125,9 @@ def checkout(branch):
 # ======================
 commit_message = subprocess.check_output(["git", "log", "-1", "--pretty=format:%s"]).decode("utf-8")
 #
-# notebook_json   = get_notebook_json()
-# master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
-# sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
-#
-# sync_branch(MASTER_BRANCH, master_notebook, msg=commit_message)
-# sync_branch(SOLUTION_BRANCH, sol_notebook, msg=commit_message)
+notebook_json   = get_notebook_json()
+master_notebook = create_master_notebook(dict(notebook_json)) # pass a copy
+sol_notebook    = create_sol_notebook(dict(notebook_json)) # pass a copy
+
+sync_branch(MASTER_BRANCH, master_notebook, msg=commit_message)
+sync_branch(SOLUTION_BRANCH, sol_notebook, msg=commit_message)
