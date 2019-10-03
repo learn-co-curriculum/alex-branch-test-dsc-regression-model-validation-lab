@@ -1,8 +1,6 @@
-print('AT THE TOP OF FILE...')
 import json
 import os
 import subprocess
-# from git import Repo, Git, GitCommandError
 import sys
 
 import time
@@ -103,17 +101,15 @@ def sync_branch(branch, notebook, msg="Curriculum Auto-Sync"):
         # (the notebook and readme will be overwritten in the subsequent steps)
         # Interesting use of the `checkout` command
         # https://superuser.com/questions/692794/how-can-i-get-all-the-files-from-one-git-branch-and-put-them-into-the-current-b/1431858#1431858
-        repo.git.checkout(CURRICULUM_BRANCH, ".")
+        os.system(f"git checkout ${CURRICULUM_BRANCH} .")
 
         # delete current images, they'll be regenerated along with the notebook
         os.system("rm -rf index_files")
 
         # write index.ipynb
-        print("ABOUT TO WRITE THE NEW NOTEBOOK...")
         write_new_notebook(notebook)
 
         # generate markdown
-        print("ABOUT TO CONVERT NB TO MARKDOWN...")
         notebook_to_markdown()
 
         # add, commit, push
@@ -132,7 +128,6 @@ def checkout(branch):
 
 # RUN
 # ======================
-print("RUNNING...")
 
 # os.system(f"git clone https://{os.environ['GITHUB_TOKEN']}@github.com/{os.environ['GITHUB_REPOSITORY']}.git {REPO_DIR_NAME}")
 # os.system(f"cd {REPO_DIR_NAME}")
