@@ -72,7 +72,7 @@ def create_sol_notebook(nb):
     nb.update({"cells": cells})
     return nb
 
-def write_new_notebook(branch, notebook):
+def write_new_notebook(notebook):
     f = open("index.ipynb", "w")
     f.write(json.dumps(notebook))
     f.close()
