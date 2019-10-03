@@ -33,8 +33,8 @@ jobs:
         git checkout --track origin/curriculum
         jupyter nbconvert index.ipynb --to markdown
         mv index.md README.md
-        git add . && git commit -m "Create Markdown: $(git log -1 --pretty=%s)"
-        git push origin curriculum || echo "No changes to push"
+        echo `git add . && git commit -m "Create Markdown: $(git log -1 --pretty=%s)"`
+        echo `push origin curriculum`
     - name: Create Master and Solution Notebooks
       run: |
         python alex.py
