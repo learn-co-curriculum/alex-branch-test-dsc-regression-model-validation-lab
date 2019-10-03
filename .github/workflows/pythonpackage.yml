@@ -36,6 +36,7 @@ jobs:
         git add .
         git commit -m "Create Markdown: $(git log -1 --pretty=%s)"
         git push origin curriculum
+        echo "Created Readme"
     - name: Create Master and Solution Notebooks
       run: |
         python alex.py
