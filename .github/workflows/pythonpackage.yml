@@ -5,7 +5,7 @@ on:
       - curriculum
 jobs:
   build:
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Cuuriculm Branch Sync
