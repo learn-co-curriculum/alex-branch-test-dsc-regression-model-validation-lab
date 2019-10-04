@@ -6,9 +6,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Curriculm Branch Sync
+    - uses: actions/checkout@master
+    - name: Sync Branches
       uses: learn-co-curriculum/curriculum-branch-sync-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
