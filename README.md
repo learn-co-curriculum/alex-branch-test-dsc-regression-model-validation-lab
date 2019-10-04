@@ -1,4 +1,4 @@
-# Lets test this again... - Lab
+# COFFEE CUP - Lab
 
 ## Introduction!
 
