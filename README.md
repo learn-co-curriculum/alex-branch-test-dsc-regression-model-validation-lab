@@ -1,4 +1,4 @@
-# Lets test this again... - Lab
+# COFFEE CUP - Lab
 
 ## Introduction!
 
@@ -222,7 +222,7 @@ Iterate over a range of train-test split sizes from .5 to .95. For each of these
 
 # Evaluating the effect of train-test split size: extension
 
-Repeat the previous example, but for each train-test split size, generate 100 iterations of models/errors and save the average train/test error. This will help account for any particularly good/bad models that might have resulted from poor/good splits in the data. 
+Repeat the previous example, but for each train-test split size, generate 100 iterations of models/errors and save the average train/test error. This will help account for any particularly good/bad models that might have resulted from poor/good splits in the data.
 
 
 ```python
@@ -257,7 +257,7 @@ plt.legend()
 
 What's happening here? evaluate your result!
 
-##  Summary 
+##  Summary
 
 
 ```python
