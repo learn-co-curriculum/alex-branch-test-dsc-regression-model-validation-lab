@@ -1,4 +1,14 @@
 name: Curriculum Branch Sync
-uses: learn-co-curriculum/curriculum-branch-sync-action@master
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+on:
+  push:
+    branches:
+      - curriculum
+jobs:
+  build:
+    runs-on: unbuntu-latest
+
+    steps:
+    - name: Cuuriculm Branch Sync
+      uses: learn-co-curriculum/curriculum-branch-sync-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
