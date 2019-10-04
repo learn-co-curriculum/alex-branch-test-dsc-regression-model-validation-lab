@@ -1,4 +1,4 @@
-# COFFEE CUP - Lab
+# all things... - Lab
 
 ## Introduction!
 

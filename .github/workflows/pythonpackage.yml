@@ -1,13 +1,10 @@
-name: Curriculum Branch Workflow
-
+name: Curriculum Branch Sync
 on:
   push:
     branches:
       - curriculum
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
