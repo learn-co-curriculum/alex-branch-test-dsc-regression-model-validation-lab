@@ -17,67 +17,67 @@ jobs:
         git config --global github.token $GITHUB_TOKEN
         git config --global user.name $GITHUB_ACTOR
         git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-    - name: Sync Branches
-      uses: learn-co-curriculum/curriculum-branch-sync-action@master
-    # - uses: actions/checkout@v1
-    # - name: Set up Python
-    #   uses: actions/setup-python@v1
-    #   with:
-    #     python-version: '3.7'
-    #     architecture: 'x64'
-    #
-    # - name: Install dependencies
-    #   run: |
-    #     python -m pip install --upgrade pip
-    #     pip install -r curriculum_resources/requirements.txt
-    #
-    # - name: Configure Github Credentials
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #   run: |
-    #     git config --global github.token $GITHUB_TOKEN
-    #     git config --global user.name $GITHUB_ACTOR
-    #     git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-    #
-    # - name: Add Markdown Readme to Curriculum Branch
-    #   run: |
-    #     git checkout --track origin/curriculum
-    #     jupyter nbconvert index.ipynb --to markdown
-    #     mv index.md README.md
-    #     echo `git add . && git commit -m "$(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code
-    #     echo `git push origin curriculum`
-    #
-    # - name: Create New Master Notebook
-    #   run: |
-    #     python curriculum_resources/master.py
-    #
-    # - name: Sync Master Branch
-    #   run: |
-    #     git checkout --track origin/master
-    #     git checkout curriculum .
-    #     rm -rf index_files
-    #     mv master_index.ipynb index.ipynb
-    #     jupyter nbconvert index.ipynb --to markdown
-    #     mv index.md README.md
-    #     git add -u
-    #     git reset -- curriculum_resources/*
-    #     echo `git commit -m "$(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code no matter what
-    #     echo `git push origin master`
-    #
-    # - name: Create New Solution Notebook
-    #   run: |
-    #     git checkout -f curriculum
-    #     python curriculum_resources/solution.py
-    #
-    # - name: Sync Solution Branch
-    #   run: |
-    #     git checkout --track origin/solution
-    #     git checkout curriculum .
-    #     rm -rf index_files
-    #     mv solution_index.ipynb index.ipynb
-    #     jupyter nbconvert index.ipynb --to markdown
-    #     mv index.md README.md
-    #     git add -u
-    #     git reset -- curriculum_resources/*
-    #     echo `git commit -m "$(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code no matter what
-    #     echo `git push origin solution`
+    # - name: Sync Branches
+    #   uses: learn-co-curriculum/curriculum-branch-sync-action@master
+    - uses: actions/checkout@v1
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.7'
+        architecture: 'x64'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r curriculum_resources/requirements.txt
+
+    - name: Configure Github Credentials
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git config --global github.token $GITHUB_TOKEN
+        git config --global user.name $GITHUB_ACTOR
+        git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+
+    - name: Add Markdown Readme to Curriculum Branch
+      run: |
+        git checkout --track origin/curriculum
+        jupyter nbconvert index.ipynb --to markdown
+        mv index.md README.md
+        echo `git add . && git commit -m "$(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code
+        echo `git push origin curriculum`
+
+    - name: Create New Master Notebook
+      run: |
+        python curriculum_resources/master.py
+
+    - name: Sync Master Branch
+      run: |
+        git checkout --track origin/master
+        git checkout curriculum .
+        rm -rf index_files
+        mv master_index.ipynb index.ipynb
+        jupyter nbconvert index.ipynb --to markdown
+        mv index.md README.md
+        git add -u
+        git reset -- curriculum_resources/*
+        echo `git commit -m "$(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code no matter what
+        echo `git push origin master`
+
+    - name: Create New Solution Notebook
+      run: |
+        git checkout -f curriculum
+        python curriculum_resources/solution.py
+
+    - name: Sync Solution Branch
+      run: |
+        git checkout --track origin/solution
+        git checkout curriculum .
+        rm -rf index_files
+        mv solution_index.ipynb index.ipynb
+        jupyter nbconvert index.ipynb --to markdown
+        mv index.md README.md
+        git add -u
+        git reset -- curriculum_resources/*
+        echo `git commit -m "$(git log -1 --pretty=%s)"` #wrapped in echo so exits with 0 (success) status code no matter what
+        echo `git push origin solution`
