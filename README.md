@@ -1,4 +1,4 @@
-# huh - Lab
+# Andrew - Lab
 
 ## Introduction!
 
@@ -14,24 +14,24 @@ You will be able to:
 
 
 
-```python
-x = 'TURTLES'
+```
+x = 'ALEX'
 ```
 
 
-```python
+```
 g = 'bye'
 ```
 
 # A markdown cell
 
 
-```python
+```
 y = 100
 ```
 
 
-```python
+```
 def whatever():
     return 1
 whatever()
@@ -45,7 +45,7 @@ whatever()
 
 
 
-```python
+```
 test = 'test'
 test
 test
@@ -53,7 +53,7 @@ test
 ```
 
 
-```python
+```
 string = "show up"
 ```
 
