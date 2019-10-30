@@ -1,4 +1,4 @@
-# huh - Lab
+# Andrew - Lab
 
 ## Introduction!
 
@@ -14,31 +14,31 @@ You will be able to:
 
 
 
-```python
-x = "idk"
+```
+x = "andrew"
 ```
 
 
-```python
+```
 f = 'hi'
 ```
 
 # A markdown cell
 
 
-```python
+```
 y = None
 ```
 
 
-```python
+```
 def whatever():
     pass
 whatever()
 ```
 
 
-```python
+```
 test = None
 test
 test
@@ -46,7 +46,7 @@ test
 ```
 
 
-```python
+```
 string = "show up"
 ```
 
@@ -55,7 +55,7 @@ string = "show up"
 This time, let's only include the variables that were previously selected using recursive feature elimination. We included the code to preprocess below.
 
 
-```python
+```
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -78,7 +78,7 @@ boston_features["LSTAT"] = (loglstat-np.mean(loglstat))/np.sqrt(np.var(loglstat)
 ```
 
 
-```python
+```
 X = boston_features[['CHAS', 'RM', 'DIS', 'B', 'LSTAT']]
 y = pd.DataFrame(boston.target,columns = ["target"])
 ```
@@ -86,21 +86,21 @@ y = pd.DataFrame(boston.target,columns = ["target"])
 ## Perform a train-test-split
 
 
-```python
+```
 from sklearn.model_selection import train_test_split
 ```
 
 ## Apply your model to the train set
 
 
-```python
+```
 X_train, X_test, y_train, y_test = train_test_split(X, y)
 ```
 
 #### Importing and initializing the model class
 
 
-```python
+```
 #A brief preview of our train test split
 print(len(X_train), len(X_test), len(y_train), len(y_test))
 ```
@@ -111,7 +111,7 @@ print(len(X_train), len(X_test), len(y_train), len(y_test))
 #### Fitting the model to the train data
 
 
-```python
+```
 from sklearn.linear_model import LinearRegression
 linreg = LinearRegression()
 ```
@@ -119,7 +119,7 @@ linreg = LinearRegression()
 #### Calculating predictions on the train set, and on the test set
 
 
-```python
+```
 linreg.fit(X_train, y_train)
 ```
 
@@ -133,7 +133,7 @@ linreg.fit(X_train, y_train)
 #### Calculating your residuals
 
 
-```python
+```
 y_hat_train = linreg.predict(X_train)
 y_hat_test = linreg.predict(X_test)
 ```
@@ -142,7 +142,7 @@ y_hat_test = linreg.predict(X_test)
 A good way to compare overall performance is to compare the mean squarred error for the predicted values on the train and test sets.
 
 
-```python
+```
 train_residuals = y_hat_train - y_train
 test_residuals = y_hat_test - y_test
 ```
@@ -150,14 +150,14 @@ test_residuals = y_hat_test - y_test
 If your test error is substantially worse then our train error, this is a sign that our model doesn't generalize well to future cases.
 
 
-```python
+```
 from sklearn.metrics import mean_squared_error
 ```
 
 One simple way to demonstrate overfitting and underfitting is to alter the size of our train test split. By default, scikit learn's built in method allocates 25% of the data to the test set and 75% to the training set. Fitting a model on only 10% of the data is apt to lead to underfitting, while training a model on 99% of the data is apt to lead to overfitting.
 
 
-```python
+```
 train_mse = mean_squared_error(y_train, y_hat_train)
 test_mse = mean_squared_error(y_test, y_hat_test)
 print('Train Mean Squarred Error:', train_mse)
@@ -177,7 +177,7 @@ Iterate over a range of train-test split sizes from .5 to .95. For each of these
 Repeat the previous example, but for each train-test split size, generate 100 iterations of models/errors and save the average train/test error. This will help account for any particularly good/bad models that might have resulted from poor/good splits in the data. 
 
 
-```python
+```
 import random
 random.seed(11)
 
@@ -212,7 +212,7 @@ What's happening here? evaluate your result!
 ##  Summary 
 
 
-```python
+```
 random.seed(8)
 
 train_err = []
@@ -247,19 +247,19 @@ plt.legend()
 
 
 
-```python
+```
 def something:
     return 1
 ```
 
 
-```python
+```
 hi = "hi"
 bye = "bye"
 ```
 
 
-```python
+```
 1 + 1
 
 ```
@@ -272,7 +272,7 @@ bye = "bye"
 
 
 
-```python
+```
 # this should appear on solution branch
 ```
 
